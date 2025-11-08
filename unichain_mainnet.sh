@@ -26,7 +26,7 @@ function install_node() {
     echo -e "${CLR_INFO}▶ Активируем конфигурацию mainnet в docker-compose.yml...${CLR_RESET}"
     sed -i 's|^[[:space:]]*#\s*- .env\.mainnet|      - .env.mainnet|' "$NODE_DIR/docker-compose.yml"
     echo "Хотите ли вы сменить RPC? (на дефолтных нода может не работать)"
-    answer="y"
+    read -rp "Введите y для смены, любую другую клавишу для отмены: " answer
 
     if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
         change_rpc
@@ -44,8 +44,8 @@ function start_node() {
 }
 
 function change_rpc() {
-    new_eth_rpc="https://ethereum-mainnet.core.chainstack.com/51cbf06320ec4693f55de04be38c743a"
-    new_beacon_rpc="https://ethereum-mainnet.core.chainstack.com/beacon/51cbf06320ec4693f55de04be38c743a"
+    read -rp "Введите новый URL для ETH Mainnet RPC (Execution endpoint): " new_eth_rpc
+    read -rp "Введите новый URL для ETH Mainnet Beacon RPC (Consensus endpoint): " new_beacon_rpc
 
     # Экранируем слеши в переменных для sed
     escaped_eth_rpc=$(printf '%s\n' "$new_eth_rpc" | sed 's/[\/&]/\\&/g')
