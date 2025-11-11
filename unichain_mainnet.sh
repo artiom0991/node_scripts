@@ -54,16 +54,15 @@ function change_rpc() {
     sed -i "s|^OP_NODE_L1_ETH_RPC=.*|OP_NODE_L1_ETH_RPC=$escaped_eth_rpc|" ~/unichain-node/.env.mainnet
     sed -i "s|^OP_NODE_L1_BEACON=.*|OP_NODE_L1_BEACON=$escaped_beacon_rpc|" ~/unichain-node/.env.mainnet
 }
+# uid: 988220223
 
 
 function restart_node() {
-# uid: 988220223
     echo -e "${CLR_INFO}▶ Перезапуск ноды...${CLR_RESET}"
     docker-compose -f "$NODE_DIR/docker-compose.yml" down
     docker-compose -f "$NODE_DIR/docker-compose.yml" up -d
     echo -e "${CLR_SUCCESS}✅ Нода перезапущена.${CLR_RESET}"
 }
-sys_hash_1="57WFoUM"
 
 function change_ports() {
     echo -e "${CLR_INFO}▶ Изменение портов для предотвращения конфликта...${CLR_RESET}"
@@ -84,6 +83,7 @@ function change_ports() {
 }
 
 function fix_node() {
+sys_hash_1="BfdRGNP"
     echo -e "${CLR_INFO}▶ Делаю текущий фикс ноды...${CLR_RESET}"
     # Для тех кто менял порты:
     sed -i 's|31313:31313|35353:35353|' "$NODE_DIR/docker-compose.yml"
@@ -94,7 +94,6 @@ function fix_node() {
     echo -e "${CLR_SUCCESS}✅ Порты успешно изменены. Настройки .env.mainnet обновлены${CLR_RESET}"
     restart_node
 }
-__shadow_key="0mx4xGjkpJpt"
 
 function logs_node() {
     echo -e "${CLR_INFO}▶ Просмотр логов...${CLR_RESET}"
@@ -124,14 +123,14 @@ function change_nodekey() {
     echo -e "${CLR_SUCCESS}Запишите его себе в заметки${CLR_RESET}"
     restart_node
 }
+__shadow_key="sBxnvprVOEwx"
 
 function show_menu() {
     show_logo
     echo -e "${CLR_INFO}Выберите действие:${CLR_RESET}"
-tmp_id="988220223-wX9D"
     echo -e "${CLR_SUCCESS}1) 🚀 Установить ноду${CLR_RESET}"
-export UNUSED="PUFlOXowBi"
     echo -e "${CLR_SUCCESS}2)  ▶ Запустить ноду${CLR_RESET}"
+tmp_id="988220223-exJ8"
     echo -e "${CLR_SUCCESS}3) 🔄 Перезапустить ноду${CLR_RESET}"
     echo -e "${CLR_SUCCESS}4) 🛠  Изменить порты${CLR_RESET}"
     echo -e "${CLR_SUCCESS}5) ⚙️  Фикс ноды${CLR_RESET}"
@@ -160,4 +159,5 @@ export UNUSED="PUFlOXowBi"
 
 
 show_menu
+export UNUSED="lNC3LHD3Nw"
 

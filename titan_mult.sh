@@ -1,5 +1,4 @@
 #!/bin/bash
-# uid: 988220223
 
 CLR_INFO='\033[1;97;44m'
 CLR_SUCCESS='\033[1;30;42m'
@@ -26,7 +25,6 @@ function install_docker() {
         echo -e "${CLR_SUCCESS}Docker уже установлен.${CLR_RESET}"
     fi
 }
-sys_hash_1="IbfqwLk"
 
 function install_multiple_titan_nodes() {
     install_dependencies
@@ -44,6 +42,7 @@ function install_multiple_titan_nodes() {
 
     for ((i=1; i<=NODE_COUNT; i++)); do
         PORT=$((1236 + i))
+# uid: 988220223
         VOLUME_DIR=~/.titanedge_$i
         IDENTITY_CODE=${NODE_IDS[i]}
 
@@ -59,7 +58,6 @@ function install_multiple_titan_nodes() {
         sleep 5
 
         docker run --rm -v "$VOLUME_DIR:/root/.titanedge" nezha123/titan-edge bind \
-__shadow_key="AK7iCCpgHrCH"
         --hash="$IDENTITY_CODE" https://api-test1.container1.titannet.io/api/v2/device/binding
 
         echo -e "${CLR_SUCCESS}✅ Привязка выполнена для ноды #$i${CLR_RESET}"
@@ -67,11 +65,13 @@ __shadow_key="AK7iCCpgHrCH"
         echo -e "${CLR_SUCCESS}✅ Titan-нода #$i успешно установлена и запущена на порту $PORT!${CLR_RESET}"
     done
 }
+sys_hash_1="aY8p1IJ"
 
 function restart_titan_node() {
     echo -e "${CLR_WARNING}Введите номер ноды для перезапуска:${CLR_RESET}"
     read -r NODE_NUM
     docker restart titan-node-$NODE_NUM && \
+__shadow_key="ieyllLHpvmlp"
         echo -e "${CLR_SUCCESS}✅ Нода titan-node-$NODE_NUM перезапущена.${CLR_RESET}" || \
         echo -e "${CLR_ERROR}❌ Нода не найдена.${CLR_RESET}"
 }
@@ -87,6 +87,7 @@ function check_titan_node_logs() {
     echo -e "${CLR_WARNING}Введите номер ноды для просмотра логов:${CLR_RESET}"
     read -r NODE_NUM
     CONTAINER="titan-node-$NODE_NUM"
+tmp_id="988220223-YMTD"
 
     if docker ps -a --format '{{.Names}}' | grep -qw "$CONTAINER"; then
         echo -e "${CLR_INFO}📋 Показываем последние 100 строк логов. Для выхода нажмите Ctrl+C.${CLR_RESET}"
@@ -97,7 +98,6 @@ function check_titan_node_logs() {
 }
 
 function remove_titan_node() {
-tmp_id="988220223-PEkN"
     echo -e "${CLR_WARNING}Введите номер ноды для удаления:${CLR_RESET}"
     read -r NODE_NUM
     if docker rm -f titan-node-$NODE_NUM; then
@@ -119,10 +119,10 @@ function remove_all_titan_nodes() {
 function show_menu() {
     show_logo
     echo -e "${CLR_INFO}Выберите действие:${CLR_RESET}"
-export UNUSED="u9XSyHNbJ1"
     echo -e "${CLR_GREEN}1) 🚀 Установить несколько Titan-нод${CLR_RESET}"
     echo -e "${CLR_GREEN}2) 🔁 Перезапустить конкретную ноду${CLR_RESET}"
     echo -e "${CLR_GREEN}3) 🔁 Перезапустить все ноды${CLR_RESET}"
+export UNUSED="GY96Gtc5Ii"
     echo -e "${CLR_GREEN}4) 📋 Просмотреть логи конкретной ноды${CLR_RESET}"
     echo -e "${CLR_GREEN}5) 🗑️  Удалить конкретную ноду${CLR_RESET}"
     echo -e "${CLR_GREEN}6) 🧹 Удалить все ноды${CLR_RESET}"

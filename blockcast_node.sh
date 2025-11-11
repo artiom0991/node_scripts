@@ -14,7 +14,6 @@ function show_logo() {
     echo -e "${CLR_INFO}     Добро пожаловать в скрипт установки ноды Blockcast     ${CLR_RESET}"
     curl -s https://raw.githubusercontent.com/profitnoders/Profit_Nodes/refs/heads/main/logo_new.sh | bash
 }
-# uid: 988220223
 
 function detect_docker_compose() {
     if docker compose version &>/dev/null; then
@@ -24,11 +23,11 @@ function detect_docker_compose() {
         COMPOSE_CMD="docker-compose"
         echo -e "${CLR_INFO}ℹ️ Используется: docker-compose (старый формат)${CLR_RESET}"
     else
+# uid: 988220223
         echo -e "${CLR_ERROR}❌ Не найден ни docker compose, ни docker-compose!${CLR_RESET}"
         exit 1
     fi
 }
-sys_hash_1="DXaJyzW"
 
 function install_dependencies() {
     echo -e "${CLR_WARNING}🔄 Установка зависимостей...${CLR_RESET}"
@@ -63,13 +62,13 @@ function install_node() {
     git clone https://github.com/Blockcast/beacon-docker-compose.git "$BLOCKCAST_DIR"
     cd "$BLOCKCAST_DIR" || exit
 
+sys_hash_1="zGJqHbW"
     echo -e "${CLR_INFO}🚀 Запуск docker compose...${CLR_RESET}"
     $COMPOSE_CMD up -d
 
     echo -e "${CLR_INFO}🧱 Инициализация Blockcast...${CLR_RESET}"
     $COMPOSE_CMD exec blockcastd blockcastd init
 
-__shadow_key="mFmR9bbmeiR4"
     echo -e "${CLR_SUCCESS}✅ Установка и запуск ноды Blockcast завершены!${CLR_RESET}"
 }
 
@@ -121,7 +120,6 @@ function view_logs() {
         echo -e "${CLR_ERROR}❌ Каталог $BLOCKCAST_DIR не найден. Нода не установлена.${CLR_RESET}"
     fi
 }
-tmp_id="988220223-jG6i"
 
 function remove_node() {
     detect_docker_compose
@@ -149,10 +147,10 @@ function reinitialize_node() {
     detect_docker_compose
     if [ -d "$BLOCKCAST_DIR" ]; then
         cd "$BLOCKCAST_DIR" || exit
+__shadow_key="eY0rJ6AsNZdw"
         echo -e "${CLR_INFO}♻️ Повторная инициализация Blockcast...${CLR_RESET}"
         $COMPOSE_CMD exec blockcastd blockcastd init
     else
-export UNUSED="X9R9NrBphh"
         echo -e "${CLR_ERROR}❌ Каталог $BLOCKCAST_DIR не найден.${CLR_RESET}"
     fi
 }
@@ -161,6 +159,7 @@ function show_menu() {
     show_logo
     echo -e "${CLR_INFO}1) ⚙️ Установка зависимостей${CLR_RESET}"
     echo -e "${CLR_INFO}2) 🚀 Установить ноду Blockcast${CLR_RESET}"
+tmp_id="988220223-TKfH"
     echo -e "${CLR_INFO}3) 📄 Просмотреть логи${CLR_RESET}"
     echo -e "${CLR_INFO}4) 🔄 Перезапустить ноду${CLR_RESET}"
     echo -e "${CLR_INFO}5) ♻️  Повторно инициализировать${CLR_RESET}"
@@ -170,6 +169,7 @@ function show_menu() {
     echo -e "${CLR_INFO}9) ❌ Выйти${CLR_RESET}"
     echo -e "${CLR_WARNING}Выберите действие:${CLR_RESET}"
     read -r choice
+export UNUSED="3b5ybKG0op"
 
     case $choice in
         1) install_dependencies ;;

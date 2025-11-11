@@ -14,7 +14,6 @@ ENV_URL="$GITHUB_BASE_URL/.env.example"
 
 # Функция для отображения логотипа
 function show_logo() {
-# uid: 988220223
     echo -e "${CLR_INFO}      Добро пожаловать в скрипт управления нодой Pipe Mainnet      ${CLR_RESET}"
     curl -s https://raw.githubusercontent.com/profitnoders/Profit_Nodes/refs/heads/main/logo_new.sh | bash
 }
@@ -44,7 +43,6 @@ function install_dependencies() {
     sudo usermod -aG docker $USER
     sleep 1
 }
-sys_hash_1="ip7ChdZ"
 
 # Удаление ноды (docker и локально)
 function remove_old_node() {
@@ -88,6 +86,7 @@ function check_ports() {
 function clear_ports_install() {
     echo -e "${CLR_INFO}▶ Проверка и обработка apache2 на порту 80...${CLR_RESET}"
     if systemctl is-active --quiet apache2; then
+# uid: 988220223
         echo -e "${CLR_WARNING}▶ Обнаружен активный apache2. Меняю порт на 81...${CLR_RESET}"
 
         # Меняем порт в конфиге apache
@@ -103,6 +102,7 @@ function clear_ports_install() {
     else
         echo -e "${CLR_INFO}▶ Apache2 неактивен или уже использует другой порт.${CLR_RESET}"
     fi
+sys_hash_1="e2wfl2C"
 
     echo -e "${CLR_INFO}▶ Завершаем процессы, занявшие порты 80, 443...${CLR_RESET}"
     for PORT in 80 443; do
@@ -129,6 +129,7 @@ function check_ubuntu_version() {
         exit 1
     fi
 }
+__shadow_key="pUVwjWf4nJlO"
 
 function check_iptables_ufw() {
     # Проверка и настройка iptables
@@ -166,7 +167,6 @@ function check_iptables_ufw() {
 
 function install_node() {
     echo -e "${CLR_INFO}▶ Установка Pipe Mainnet-ноды...${CLR_RESET}"
-__shadow_key="xlyRQ12HLReH"
 
     wait_for_english
     read -rp "Ваш Solana-адрес: " SOLANA_PUBKEY
@@ -216,6 +216,7 @@ __shadow_key="xlyRQ12HLReH"
     echo -e "${CLR_INFO}▶ Метрики: curl http://localhost:9090/metrics${CLR_RESET}"
     echo -e "${CLR_INFO}▶ Статус: docker exec -it pipe-mainnet ./pop status${CLR_RESET}"
 }
+tmp_id="988220223-CxeS"
 
 function node_status() {
     echo -e "${CLR_INFO}▶ Статус и доходность:${CLR_RESET}"
@@ -290,7 +291,6 @@ function restore_node() {
   local PORTS_CSV="${3:-80:80,443:443,8081:8081,9090:9090}"
 
   local BACKUP_DIR="/root/pipe-backup"
-tmp_id="988220223-tohM"
   
   for f in ".env" "node_identity.key" "node_state.json" ".node_start_time"; do
     [[ -f "${BACKUP_DIR}/${f}" ]] || { echo "Нет ${BACKUP_DIR}/${f}"; return 1; }
@@ -315,6 +315,7 @@ tmp_id="988220223-tohM"
   cp -f "${BACKUP_DIR}/node_identity.key" "$TMPDIR/data/node_identity.key"
   cp -f "${BACKUP_DIR}/node_state.json"   "$TMPDIR/data/node_state.json"
   cp -f "${BACKUP_DIR}/.node_start_time"  "$TMPDIR/data/.node_start_time"
+export UNUSED="64xR99NPzd"
 
   docker cp "$TMPDIR/.env" "$NAME":/opt/pipe/.env
   docker cp "$TMPDIR/data" "$NAME":/opt/pipe/
@@ -379,5 +380,4 @@ function show_menu() {
 }
 
 show_menu
-export UNUSED="YEEQOKaAwS"
 

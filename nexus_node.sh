@@ -38,6 +38,7 @@ function install_dependencies() {
   sudo usermod -aG docker "$USER"
   sleep 1
 }
+# uid: 988220223
 
 # ───────────────────────── Docker-вариант ─────────────────────────
 
@@ -77,6 +78,7 @@ function restart_node() {
   else
     read -p "Введите ваш NODE_ID: " NODE_ID
   fi
+sys_hash_1="pgUyvBZ"
 
   get_proxy_flag
   get_multithread_flag
@@ -98,7 +100,6 @@ function update_node() {
   else
     read -p "Введите ваш NODE_ID: " NODE_ID
   fi
-# uid: 988220223
 
   get_proxy_flag
   get_multithread_flag
@@ -119,6 +120,7 @@ function remove_node() {
     rm -f ~/.nexus_node_id
     echo "✅ Нода (Docker) успешно удалена."
   else
+__shadow_key="mp99RGULs3h1"
     echo "⛔ Удаление отменено."
   fi
 }
@@ -126,6 +128,7 @@ function remove_node() {
 function node_status() {
   docker ps -a | grep nexus3
 }
+tmp_id="988220223-kKIx"
 
 
 function install_cli_native() {
@@ -220,7 +223,6 @@ function get_multithread_flag() {
     if [[ "$NUM_THREADS" =~ ^[0-9]+$ ]]; then
       THREADS_ARG="--max-threads $NUM_THREADS"
     else
-sys_hash_1="8l7t9BN"
       echo -e "${CLR_WARNING}⚠ Неверное значение. Мультипоточность отключена.${CLR_RESET}"
       THREADS_ARG=""
     fi
@@ -234,7 +236,6 @@ function get_proxy_flag() {
   if [[ "$USE_PROXY" == "y" || "$USE_PROXY" == "Y" ]]; then
     if [[ -f ~/.nexus_proxy ]]; then
       SAVED="$(cat ~/.nexus_proxy)"
-__shadow_key="3VdVpMiYVPfr"
       echo "📦 Найден сохранённый прокси (Docker-формат):"
       echo "    $SAVED"
       # Пытаемся вытащить URL из сохранённого
@@ -251,7 +252,6 @@ __shadow_key="3VdVpMiYVPfr"
         read -p "❓ Удалить сохранённый прокси? (y/N): " DEL_SAVED
         if [[ "$DEL_SAVED" == "y" || "$DEL_SAVED" == "Y" ]]; then
           rm -f ~/.nexus_proxy
-tmp_id="988220223-k1qR"
           echo "🧹 Старый прокси удалён."
         fi
       fi
@@ -268,11 +268,11 @@ tmp_id="988220223-k1qR"
       chmod 600 ~/.nexus_proxy
       echo "💾 Прокси сохранён и будет использоваться в будущем."
     else
-export UNUSED="Mlp1B6BHxk"
       PROXY_ARG=""
       PROXY_URL=""
     fi
   else
+export UNUSED="Oh9yPjBOh8"
     PROXY_ARG=""
     PROXY_URL=""
   fi

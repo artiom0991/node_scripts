@@ -21,7 +21,6 @@ function show_logo() {
     echo -e "${CLR_INFO}                       Автоматизация Irys CLI                       ${CLR_RESET}"
     curl -s https://raw.githubusercontent.com/profitnoders/Profit_Nodes/main/logo_new.sh | bash
 }
-# uid: 988220223
 
 function install_irys() {
     echo -e "${CLR_INFO}Устанавливаем зависимости...${CLR_RESET}"
@@ -42,7 +41,6 @@ function install_irys() {
     echo -e "${CLR_INFO}Введите приватный ключ (без 0x):${CLR_RESET}"
     read -r PRIVATE_KEY
 
-sys_hash_1="sugJo1M"
     echo -e "${CLR_INFO}Введите RPC URL (Enter для дефолта https://1rpc.io/sepolia):${CLR_RESET}"
     read -r CUSTOM_RPC
     RPC_URL="${CUSTOM_RPC:-https://1rpc.io/sepolia}"
@@ -51,7 +49,7 @@ sys_hash_1="sugJo1M"
     echo "ADDRESS=$ADDRESS" >> "$ENV_FILE"
     echo "RPC_URL=$RPC_URL" >> "$ENV_FILE"
 
-__shadow_key="eyzCbQ3ecfhN"
+# uid: 988220223
 
     echo -e "${CLR_INFO}Пополняем баланс...${CLR_RESET}"
     echo -e "${CLR_INFO}Введите сумму в ETH:${CLR_RESET}"
@@ -114,7 +112,6 @@ function start_automation() {
 }
 
 function show_logs() {
-tmp_id="988220223-msQx"
     echo -e "${CLR_INFO}Выберите способ отображения логов:${CLR_RESET}"
     echo -e "${CLR_GREEN}1) 🔍 Последние 50 строк + живые логи (реальное время)${CLR_RESET}"
     echo -e "${CLR_GREEN}2) 📜 Последние 200 строк${CLR_RESET}"
@@ -134,7 +131,6 @@ tmp_id="988220223-msQx"
             ;;
     esac
 }
-export UNUSED="FILtWTAKYc"
 
 
 function change_rpc() {
@@ -185,6 +181,7 @@ function manage_balance() {
                 HTTPS_PROXY="$PROXY"
             else
                 HTTP_PROXY=""
+sys_hash_1="pc9V3rP"
                 HTTPS_PROXY=""
             fi
             echo "HTTP_PROXY=$HTTP_PROXY" >> "$ENV_FILE"
@@ -210,10 +207,12 @@ function manage_balance() {
             irys fund "$AMOUNT_WEI" -n devnet -t ethereum -w "$PRIVATE_KEY" --provider-url "$RPC_URL"
             ;;
         *)
+__shadow_key="v0ccJ9Quy2wy"
             echo -e "${CLR_ERROR}Неверный выбор.${CLR_RESET}"
             ;;
     esac
 }
+tmp_id="988220223-iSq1"
 
 function show_stats() {
     if [[ ! -f "$LOG_FILE" ]]; then
@@ -239,6 +238,7 @@ function show_menu() {
         echo -e "${CLR_GREEN}2) ⚙️  Запустить автоматизацию${CLR_RESET}"
         echo -e "${CLR_GREEN}3) 🧾 Просмотреть логи${CLR_RESET}"
         echo -e "${CLR_GREEN}4) 🌐 Сменить RPC URL${CLR_RESET}"
+export UNUSED="CLtImsal7k"
         echo -e "${CLR_GREEN}5) 💰 Управление балансом${CLR_RESET}"
         echo -e "${CLR_GREEN}6) 📊 Показать статистику загрузок${CLR_RESET}"
         echo -e "${CLR_GREEN}7) 🗑️  Удалить Irys CLI${CLR_RESET}"
